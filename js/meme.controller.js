@@ -1,5 +1,7 @@
 'use strict'
 
+const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
+
 // global vars
 var gElCanvas
 var gCtx
@@ -29,7 +31,10 @@ function onSetLineText(elText) {
     const txt = elText.value
     const meme = getMeme()
     // update
-    setLineTxt(txt, meme.selectedLineIdx)
+    if (meme.isLineSelected) {
+        setLineTxt(txt, meme.selectedLineIdx)
+    }
+
     renderMeme()
 }
 
@@ -78,16 +83,16 @@ function onAddLine() {
     let lineCount = meme.lines.length
 
     // first line - top
-    if(lineCount === 0) {
-        addLine(lineText, 40, {x: gCanvasWidth / 2, y: gCanvasHeight / 10}, 'center', 'black')
+    if (lineCount === 0) {
+        addLine(lineText, 40, { x: gCanvasWidth / 2, y: gCanvasHeight / 10 }, 'center', 'black')
     }
     // second line - bottom
-    else if (lineCount === 1){
-        addLine(lineText, 40, {x: gCanvasWidth / 2, y: gCanvasHeight - gCanvasHeight * 0.15}, 'center', 'black')
+    else if (lineCount === 1) {
+        addLine(lineText, 40, { x: gCanvasWidth / 2, y: gCanvasHeight - gCanvasHeight * 0.15 }, 'center', 'black')
     }
     // rest center
     else {
-        addLine(lineText, 40, {x: gCanvasWidth / 2, y: gCanvasHeight / 2}, 'center', 'black')
+        addLine(lineText, 40, { x: gCanvasWidth / 2, y: gCanvasHeight / 2 }, 'center', 'black')
     }
 
     meme.selectedLineIdx = meme.lines.length - 1
@@ -96,8 +101,8 @@ function onAddLine() {
 
 // add events listeners to form inputs? and canvas
 function addEventListeners() {
-    // addMouseEvents()
-    // addTouchEvents()
+    addMouseEvents()
+    addTouchEvents()
     window.addEventListener('resize', () => {
         resizeCanvas()
         renderMeme()
@@ -120,17 +125,17 @@ function onDown(ev) {
     // Get the ev pos from mouse or touch
     const pos = getEvPos(ev)
     // console.log('pos:', pos)
-    if (!isCircleClicked(pos)) return
+    if (!isLineClicked(pos)) return
 
     // console.log('Down')
-    setCircleDrag(true)
+    setLineDrag(true)
     //Save the pos we start from
     gStartPos = pos
     document.body.style.cursor = 'grabbing'
 }
 
 function onMove(ev) {
-    const { isDrag } = getCircle()
+    const { isDrag } = getLine()
     if (!isDrag) return
     // console.log('Move')
 
@@ -138,17 +143,41 @@ function onMove(ev) {
     // Calc the delta , the diff we moved
     const dx = pos.x - gStartPos.x
     const dy = pos.y - gStartPos.y
-    moveCircle(dx, dy)
+    moveLine(dx, dy)
     // Save the last pos , we remember where we`ve been and move accordingly
     gStartPos = pos
     // The canvas is render again after every move
-    renderCanvas()
+    renderMeme()
 }
 
 function onUp() {
-    // console.log('Up')
-    setCircleDrag(false)
+    setLineDrag(false)
     document.body.style.cursor = 'grab'
+}
+
+function getEvPos(ev) {
+    // Gets the offset pos , the default pos
+    let pos = {
+        x: ev.offsetX,
+        y: ev.offsetY,
+    }
+    // console.log('pos:', pos)
+    // Check if its a touch ev
+    if (TOUCH_EVS.includes(ev.type)) {
+        //soo we will not trigger the mouse ev
+        ev.preventDefault()
+        //Gets the first touch point
+        ev = ev.changedTouches[0]
+        //Calc the right pos according to the touch screen
+        // console.log('ev.pageX:', ev.pageX)
+        // console.log('ev.pageY:', ev.pageY)
+        pos = {
+            x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
+            y: ev.pageY - ev.target.offsetTop - ev.target.clientTop,
+        }
+        // console.log('pos:', pos)
+    }
+    return pos
 }
 
 //////////////////////////////////////////////////
