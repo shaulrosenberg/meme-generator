@@ -1,0 +1,14 @@
+:root {
+    --clr-2: #c2c2c2;
+    --clr-1: #ffffff; 
+    --clr0: #4f4e4e;
+    --clr1: #8a8a8a;
+    --clr3: #292929;
+
+    /* LAYOUT */
+    --layout-padding: 1.25rem;
+    --site-width: max-content;
+    --l: 980px;
+    --m: 860px;
+    --s: 640px;
+}

@@ -1,0 +1,65 @@
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    font-size: 1rem;
+    margin: 0;
+}
+
+img {
+    width: 100%;
+    /* height: auto; */
+    /* object-fit: cover; */
+}
+
+a {
+    /* color: var(--clr2); */
+}
+
+button {
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+p {
+    margin: 0 0 1em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 400;
+    margin: 0 0 1em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+/* burger menu later on */
+.main-screen {
+	cursor: pointer;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.6);
+	opacity: 0;
+	pointer-events: none;
+}
+
+body.menu-open .main-screen.menu-background {
+	pointer-events: auto;
+	opacity: 1;
+}
