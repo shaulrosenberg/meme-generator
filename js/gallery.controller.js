@@ -22,6 +22,7 @@ function renderGallery() {
 function hideGallery() {
     const elGallery = document.querySelector('.img-gallery')
     elGallery.classList.add('display-none')
+    elGallery.hidden = true
 }
 
 function onImgSelect(imgId) {

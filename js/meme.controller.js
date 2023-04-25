@@ -6,6 +6,7 @@ var gCtx
 
 var gCanvasWidth
 var gCanvasHeight
+var gStartPos
 
 
 // ?
@@ -15,13 +16,11 @@ function onInitCanvas() {
     gCanvasHeight = gElCanvas.height
     gCanvasWidth = gElCanvas.width
     resizeCanvas()
-    // renderMeme()
+    addEventListeners()
 }
 
 function renderMeme() {
     const meme = getMeme()
-    // render meme img to canvas
-    // render meme.lines.txt to canvas -> for loop?
     drawImg(meme.selectedImgId)
 }
 
@@ -29,6 +28,7 @@ function renderMeme() {
 function onSetLineText(elText) {
     const txt = elText.value
     const meme = getMeme()
+    // update
     setLineTxt(txt, meme.selectedLineIdx)
     renderMeme()
 }
@@ -50,6 +50,8 @@ function drawImg(imgId) {
 }
 
 function drawText(text, x, y) {
+    const meme = getMeme()
+    // apply meme options
     gCtx.lineWidth = 2
     gCtx.strokeStyle = 'black'
     gCtx.fillStyle = 'white'
@@ -64,25 +66,89 @@ function drawText(text, x, y) {
 // draw all lines after image is rendered
 function drawLines() {
     const meme = getMeme()
-    meme.lines.forEach(line => {
-        const {x, y} = line.pos
-        drawText(meme.lines[meme.selectedLineIdx].txt, x, y)
+    meme.lines.forEach((line, idx) => {
+        // draw each line at pos {x, y} = line.pos
+        drawText(meme.lines[idx].txt, line.pos.x, line.pos.y)
     })
+}
+
+function onAddLine() {
+    const lineText = document.querySelector('#lineText').value
+    const meme = getMeme()
+    let lineCount = meme.lines.length
+
+    // first line - top
+    if(lineCount === 0) {
+        addLine(lineText, 40, {x: gCanvasWidth / 2, y: gCanvasHeight / 10}, 'center', 'black')
+    }
+    // second line - bottom
+    else if (lineCount === 1){
+        addLine(lineText, 40, {x: gCanvasWidth / 2, y: gCanvasHeight - gCanvasHeight * 0.15}, 'center', 'black')
+    }
+    // rest center
+    else {
+        addLine(lineText, 40, {x: gCanvasWidth / 2, y: gCanvasHeight / 2}, 'center', 'black')
+    }
+
+    meme.selectedLineIdx = meme.lines.length - 1
+    renderMeme()
 }
 
 // add events listeners to form inputs? and canvas
 function addEventListeners() {
-    addMouseEvents()
-    addTouchEvents()
-    // add resize event
+    // addMouseEvents()
+    // addTouchEvents()
+    window.addEventListener('resize', () => {
+        resizeCanvas()
+        renderMeme()
+    })
 }
 
 function addMouseEvents() {
-
+    gElCanvas.addEventListener('mousedown', onDown)
+    gElCanvas.addEventListener('mousemove', onMove)
+    gElCanvas.addEventListener('mouseup', onUp)
 }
 
 function addTouchEvents() {
+    gElCanvas.addEventListener('touchstart', onDown)
+    gElCanvas.addEventListener('touchmove', onMove)
+    gElCanvas.addEventListener('touchend', onUp)
+}
 
+function onDown(ev) {
+    // Get the ev pos from mouse or touch
+    const pos = getEvPos(ev)
+    // console.log('pos:', pos)
+    if (!isCircleClicked(pos)) return
+
+    // console.log('Down')
+    setCircleDrag(true)
+    //Save the pos we start from
+    gStartPos = pos
+    document.body.style.cursor = 'grabbing'
+}
+
+function onMove(ev) {
+    const { isDrag } = getCircle()
+    if (!isDrag) return
+    // console.log('Move')
+
+    const pos = getEvPos(ev)
+    // Calc the delta , the diff we moved
+    const dx = pos.x - gStartPos.x
+    const dy = pos.y - gStartPos.y
+    moveCircle(dx, dy)
+    // Save the last pos , we remember where we`ve been and move accordingly
+    gStartPos = pos
+    // The canvas is render again after every move
+    renderCanvas()
+}
+
+function onUp() {
+    // console.log('Up')
+    setCircleDrag(false)
+    document.body.style.cursor = 'grab'
 }
 
 //////////////////////////////////////////////////
