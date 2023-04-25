@@ -26,7 +26,7 @@ function renderMeme() {
 
 // called when text input is changed (onchange event)
 function onSetLineText(elText) {
-
+    
 }
 
 // resize canvas on('resize', resizeCanvas)

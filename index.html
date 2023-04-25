@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/62f112fa10.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles/style.css">
     <title>Meme Generator</title>
 </head>
 
 <body class="main-layout">
-    <header class="header flex space-between">
+    <header class="header main-layout full">
         <div class="logo">Logo</div>
         <ul class="main-nav flex space-between clean-list">
             <li><a href="#">Gallery</a></li>
@@ -22,10 +23,39 @@
     <section class="img-gallery"></section>
 
     <section class="meme-container">
-        <section class="meme-toolbox flex column">
-            <label for="lineText"></label>
-            <input type="text" name="lineText" id="lineText">
+        <section class="meme-toolbox">
+            <input type="text" name="lineText" id="lineText" placeholder="Add text here" onchange="onSetLineText(this)">
 
+            <div class="btns-first">
+                <button class="btn btn-add"><i class="fa-solid fa-plus"></i></button>
+                <button class="btn btn-updown">UPDown</button>
+                <button class="btn btn-delete">Delete</button>
+            </div>
+
+            <div class="btns-second">
+                <button class="btn btn-font-up">font+</button>
+                <button class="btn btn-font-up">font-</button>
+                <button class="btn btn-font-up">left</button>
+                <button class="btn btn-font-up">center</button>
+                <button class="btn btn-font-down">right</button>
+            </div>
+
+            <div class="btns-third">
+                <select value="impact">
+                    <option value="impact">Impact</option>
+                </select>
+                <button class="btn btn-font">A</button>
+                <button class="btn btn-color">Color</button>
+            </div>
+
+            <div class="emoji-container">
+                EMOJIS
+            </div>
+
+            <div class="btns-last">
+                <button class="btn btn-share">Share</button>
+                <button class="btn btn-download">Download</button>
+            </div>
 
         </section>
 

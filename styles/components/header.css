@@ -1,9 +1,23 @@
 
 
 .header {
-    
+    background-color: var(--clr-brand);
 }
 
 .main-nav {
-    
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    align-self: center;
 }
+
+.main-nav li {
+    padding-block: 20px;
+    padding-inline: 25px;
+    border-inline-end: 2px solid salmon;
+}
+
+.main-nav li:last-of-type {
+    border-inline-end: none;
+}
+

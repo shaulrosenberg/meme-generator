@@ -23,7 +23,8 @@ function getMeme() {
 
 // add text to meme at specified lineIdx, 0 - top , 1 - bottom , 2+ - center
 function setLineTxt(txt, lineIdx) {
-
+    const meme = getMeme()
+    meme.lines[lineIdx].txt = txt
 }
 
 function setImg(imgId) {

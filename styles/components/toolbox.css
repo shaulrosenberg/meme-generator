@@ -1,6 +1,55 @@
-
-
 .meme-toolbox {
     grid-column: 3;
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 2fr 2fr 2fr 1fr;
     border: 1px solid black;
+}
+
+.meme-toolbox #lineText {
+    grid-row: 1;
+    grid-column: 1/-1;
+    align-self: start;
+    height: 2em;
+}
+
+.btns-first {
+    grid-row: 1;
+    grid-column: 1/-1;
+    align-self: center;
+    justify-self: center;
+}
+
+.btns-second {
+    grid-row: 2;
+    grid-column: 1/-1;
+    align-self: start;
+    justify-self: center;
+}
+
+.btns-third {
+    grid-row: 2;
+    grid-column: 1/-1;
+    justify-self: center;
+    align-self: end;
+    margin-block-end: 1em;
+}
+
+.emoji-container {
+    grid-row: 3;
+    grid-column: 1/-1;
+    justify-self: center;
+}
+
+.btns-last {
+    grid-row: 4;
+    grid-column: 1/-1;
+    justify-self: center;
+}
+
+.btn {
+    width: 2.5em;
+    height: 2.5em;
+    border: none;
 }
