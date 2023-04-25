@@ -10,10 +10,10 @@ function renderGallery() {
     let imgsHTML = ''
 
     imgsHTML = imgs.map(img => 
-    `<img src='${img.id}'>`
+    `<img src='${img.id}.jpg' onclick='onImgSelect('${img.id}')'>`
     ).join()
 
-    const elGallery = document.querySelector('img')
+    const elGallery = document.querySelector('img-gallery')
 }
 
 function onImgSelect(imgId) {

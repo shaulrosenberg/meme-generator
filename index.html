@@ -10,23 +10,35 @@
 </head>
 
 <body class="main-layout">
-    <header class="header"></header>
+    <header class="header flex space-between">
+        <div class="logo">Logo</div>
+        <ul class="main-nav flex space-between clean-list">
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">Memes</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+    </header>
 
     <section class="img-gallery"></section>
 
     <section class="meme-container">
-        <section class="meme-toolbox"></section>
+        <section class="meme-toolbox flex column">
+            <label for="lineText"></label>
+            <input type="text" name="lineText" id="lineText">
+
+
+        </section>
 
         <section class="canvas-container">
-            <canvas class="meme-canvas"></canvas>
+            <canvas class="meme-canvas" width="450" height="450"></canvas>
         </section>
     </section>
 
-    <section class="saved-memes"></section>
+    <!-- deal with these later on -->
+    <section class="saved-memes" hidden></section>
+    <section class="about" hidden></section>
 
-    <section class="about"></section>
-
-    <footer class="footer"></footer>
+    <footer class="footer flex full justify-center">Made By Shaul Rosenberg</footer>
 
 
 

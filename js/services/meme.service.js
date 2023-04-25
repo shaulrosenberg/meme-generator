@@ -1,6 +1,8 @@
 'use strict'
 
+const MEME_KEY = 'memeDB'
 
+// global
 var gMeme = {
     selectedImgId: 5,
     selectedLineIdx: 0,
@@ -14,11 +16,12 @@ var gMeme = {
     ]
 }
 
-
+// return current meme we're working on
 function getMeme() {
     return gMeme
 }
 
+// add text to meme at specified lineIdx, 0 - top , 1 - bottom , 2+ - center
 function setLineTxt(txt, lineIdx) {
 
 }
