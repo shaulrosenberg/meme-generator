@@ -1,7 +1,9 @@
 'use strict'
 
 
-
+function onInitGallery() {
+    renderGallery()
+}
 
 function renderGallery() {
     // call getImgs
@@ -9,14 +11,24 @@ function renderGallery() {
     const imgs = getImgs()
     let imgsHTML = ''
 
-    imgsHTML = imgs.map(img => 
-    `<img src='${img.id}.jpg' onclick='onImgSelect('${img.id}')'>`
-    ).join()
+    imgsHTML = imgs.map(img =>
+        `<img src=${img.url} onclick='onImgSelect(${img.id})'>`
+    ).join('')
 
-    const elGallery = document.querySelector('img-gallery')
+    const elGallery = document.querySelector('.img-gallery')
+    elGallery.innerHTML = imgsHTML
+}
+
+function hideGallery() {
+    const elGallery = document.querySelector('.img-gallery')
+    elGallery.classList.add('display-none')
 }
 
 function onImgSelect(imgId) {
+    console.log(imgId)
     setImg(imgId)
+    hideGallery()
+    showMemeEdit()
+    onInitCanvas()
     renderMeme()
 }

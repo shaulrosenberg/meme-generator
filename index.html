@@ -10,7 +10,7 @@
     <title>Meme Generator</title>
 </head>
 
-<body class="main-layout">
+<body class="main-layout" onload="onInitGallery()">
     <header class="header main-layout full">
         <div class="logo">Logo</div>
         <ul class="main-nav flex space-between clean-list">
@@ -22,9 +22,9 @@
 
     <section class="img-gallery"></section>
 
-    <section class="meme-container">
+    <section class="meme-container display-none">
         <section class="meme-toolbox">
-            <input type="text" name="lineText" id="lineText" placeholder="Add text here" onchange="onSetLineText(this)">
+            <input type="text" name="lineText" id="lineText" placeholder="Add text here" oninput="onSetLineText(this)">
 
             <div class="btns-first">
                 <button class="btn btn-add"><i class="fa-solid fa-plus"></i></button>
@@ -54,7 +54,7 @@
 
             <div class="btns-last">
                 <button class="btn btn-share">Share</button>
-                <button class="btn btn-download">Download</button>
+                <a class="btn-download" href="#" download onclick="downloadCanvas(this)">Download</a>
             </div>
 
         </section>

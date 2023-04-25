@@ -5,15 +5,16 @@ const IMAGE_KEY = 'imageDB'
 
 // global vars
 var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
-// testing
 var gFilterKeyword = 'funny'
-var gImgs = [{ id: 1, url: 'img/1.jpg', keywords: ['funny', 'cat'] }];
+var gImgs
+// var gImgs = [{ id: 1, url: 'img/1.jpg', keywords: ['funny', 'cat'] }];
 
+_createImgs()
 
 // list
 function getImgs() {
     // filter by keywords
-    const imgs = gImgs.filter(img => img.keywords.contains(gFilterKeyword))
+    // const imgs = gImgs.filter(img => img.keywords.contains(gFilterKeyword))
     return gImgs
 }
 
@@ -27,16 +28,16 @@ function _createImg(imgId, imgUrl, keywords) {
 }
 
 function _createImgs() {
-    var imgs = loadFromStorage(STORAGE_KEY)
+    var imgs = loadFromStorage(IMAGE_KEY)
     if (!imgs || !imgs.length) {
         imgs = []
-        for(let i = 0; i < IMAGE_COUNT; i++) {
-            imgs.push(_createImg(i, `img/${i}.jpg`, ))
+        for (let i = 1; i <= IMAGE_COUNT; i++) {
+            imgs.push(_createImg(i, `img/${i}.jpg`, getRandomKeywords()))
         }
-        
+
     }
     gImgs = imgs
-    saveToStorage()
+    saveToStorage(IMAGE_KEY, gImgs)
 }
 // read
 function findImgById(imgId) {

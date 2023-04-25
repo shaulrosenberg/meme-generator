@@ -10,7 +10,16 @@ function makeId(length = 6) {
 }
 
 function getRandomKeywords(length = 2) {
-    var keywords = ['funny', 'cat', 'dog']
+    let keywords = ['funny', 'cat', 'dog', 'meme', 'sad']
+    let randKeywords = []
+    
+    for (let i = 0; i < length; i++) {
+        let randIdx = getRandomIntInclusive(0, keywords.length - 1)
+        randKeywords.push(keywords[randIdx])
+        keywords.splice(randIdx, 1)
+    }
+
+    return randKeywords
 }
 
 function makeLorem(wordCount = 100) {
