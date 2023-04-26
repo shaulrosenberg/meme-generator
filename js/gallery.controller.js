@@ -1,5 +1,6 @@
 'use strict'
 
+var gIsFirstLoad = false
 
 function onInitGallery() {
     renderGallery()
@@ -24,8 +25,14 @@ function hideGallery() {
     elGallery.classList.add('display-none')
 }
 
+// TODO: upload own image to gallery
+function onAddImage() {
+
+}
+
 function onImgSelect(imgId) {
     console.log(imgId)
+    gIsFirstLoad = true
     setImg(imgId)
     hideGallery()
     showMemeEdit()

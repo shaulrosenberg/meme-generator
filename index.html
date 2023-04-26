@@ -28,7 +28,7 @@
 
             <div class="btns-group1">
                 <button class="btn btn-add" onclick="onAddLine()"><i class="fa-solid fa-plus"></i></button>
-                <button class="btn btn-updown">UPDown</button>
+                <button class="btn btn-updown" onclick="onSwitchLine()">UPDown</button>
                 <button class="btn btn-delete" onclick="onDeleteLine()">Delete</button>
             </div>
 
@@ -56,12 +56,13 @@
             <div class="btns-group4">
                 <button class="btn btn-share">Share</button>
                 <a class="btn-download" href="#" download onclick="downloadCanvas(this)">Download</a>
+                <button class="btn btn-save">SAVE</button>
             </div>
 
         </section>
 
         <section class="canvas-container">
-            <canvas class="meme-canvas" width="450" height="450"></canvas>
+            <canvas class="meme-canvas"></canvas>
         </section>
     </section>
 

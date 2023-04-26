@@ -14,10 +14,10 @@ var gStartPos
 // ?
 function onInitCanvas() {
     gElCanvas = document.querySelector('.meme-canvas')
+    gElCanvas.width = 460
+    gElCanvas.height = 460
     gCtx = gElCanvas.getContext('2d')
-    gCanvasHeight = gElCanvas.height
-    gCanvasWidth = gElCanvas.width
-    // resizeCanvas() needs fixing
+    resizeCanvas()
     addEventListeners()
 }
 
@@ -42,6 +42,10 @@ function onSetLineText(elText) {
 function resizeCanvas() {
     const elContainer = document.querySelector('.canvas-container')
     gElCanvas.width = elContainer.offsetWidth
+    gElCanvas.width = elContainer.offsetHeight
+
+    gCanvasWidth = gElCanvas.width
+    gCanvasHeight = gElCanvas.height
 }
 
 function drawImg(imgId) {
@@ -76,13 +80,18 @@ function drawText(line, idx) {
 function drawLines() {
     const meme = getMeme()
     // if no lines -> add empty line and have it marked for filling
+    if(!meme.lines.length && gIsFirstLoad) {
+        onAddLine()
+        gIsFirstLoad = false
+    }
     meme.lines.forEach((line, idx) => {
         drawText(line, idx)
     })
 }
 
 function onAddLine() {
-    const lineText = document.querySelector('#lineText').value
+    const elInputText = document.querySelector('#lineText')
+    const lineText = elInputText.value || elInputText.placeholder
     const meme = getMeme()
     let lineCount = meme.lines.length
     // default line
@@ -112,11 +121,17 @@ function onAddLine() {
 
 function onSwitchLine() {
     switchLine()
+    updateInputText(getLineText())
     renderMeme()
+}
+
+function updateInputText(txt) {
+    document.querySelector('#lineText').value = txt
 }
 
 function onDeleteLine() {
     deleteLine()
+    updateInputText('')
     renderMeme()
 }
 
@@ -139,6 +154,12 @@ function onSetColor(color) {
 // L / R / C
 function onSetAlign(align) {
     setAlign(align)
+    renderMeme()
+}
+
+function onSetSelectedLine(pos) {
+    setSelectedLine(pos)
+    updateInputText(getLineText())
     renderMeme()
 }
 
@@ -169,8 +190,14 @@ function onDown(ev) {
     // Get the ev pos from mouse or touch
     const pos = getEvPos(ev)
     // console.log('pos:', pos)
-    if (!isLineClicked(pos)) return
+    if (!isLineClicked(pos)) {
+        getMeme().isLineSelected = false
+        updateInputText('')
+        renderMeme()
+        return
+    }
     // console.log('Down')
+    onSetSelectedLine(pos)
     setLineDrag(true)
     //Save the pos we start from
     gStartPos = pos
@@ -178,6 +205,7 @@ function onDown(ev) {
 }
 
 function onMove(ev) {
+    if (!getLine()) return
     const { isDrag } = getLine()
     if (!isDrag) return
     // console.log('Move')
