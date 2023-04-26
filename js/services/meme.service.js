@@ -37,7 +37,7 @@ function getLine() {
 
 function getLineText() {
     const line = getLine()
-    if (!line) return
+    if (!line) return null
     return line.txt
 }
 
@@ -127,7 +127,7 @@ function setColor(color) {
 }
 
 function setLineDrag(newState) {
-    if(!gMeme.isLineSelected) return
+    if (!gMeme.isLineSelected) return
     gMeme.lines[gMeme.selectedLineIdx].isDrag = newState
 }
 
