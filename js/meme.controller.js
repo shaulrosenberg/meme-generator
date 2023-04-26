@@ -17,7 +17,7 @@ function onInitCanvas() {
     gCtx = gElCanvas.getContext('2d')
     gCanvasHeight = gElCanvas.height
     gCanvasWidth = gElCanvas.width
-    resizeCanvas()
+    // resizeCanvas() needs fixing
     addEventListeners()
 }
 
@@ -54,26 +54,30 @@ function drawImg(imgId) {
     }
 }
 
-function drawText(text, x, y) {
+function drawText(line, idx) {
     const meme = getMeme()
     // apply meme options
     gCtx.lineWidth = 2
-    gCtx.strokeStyle = 'black'
-    gCtx.fillStyle = 'white'
-    gCtx.font = '40px Impact'
-    gCtx.textAlign = 'center'
-    gCtx.textBaseline = 'middle'
+    gCtx.strokeStyle = line.color
+    gCtx.fillStyle = line.fill
+    gCtx.font = `${line.size}px ${line.font || 'Impact'}`
+    gCtx.textAlign = line.align
+    gCtx.textBaseline = 'top'
 
-    gCtx.fillText(text, x, y) // Draws (fills) a given text at the given (x, y) position.
-    gCtx.strokeText(text, x, y) // Draws (strokes) a given text at the given (x, y) position.
+    gCtx.fillText(line.txt, line.pos.x, line.pos.y) // Draws (fills) a given text at the given (x, y) position.
+    gCtx.strokeText(line.txt, line.pos.x, line.pos.y) // Draws (strokes) a given text at the given (x, y) position.
+    if (meme.isLineSelected && meme.selectedLineIdx === idx) {
+        const { x, y, xEnd, yEnd } = getLineBorder(line)
+        gCtx.strokeRect(x, y, xEnd - x, yEnd - y)
+    }
 }
 
 // draw all lines after image is rendered
 function drawLines() {
     const meme = getMeme()
+    // if no lines -> add empty line and have it marked for filling
     meme.lines.forEach((line, idx) => {
-        // draw each line at pos {x, y} = line.pos
-        drawText(meme.lines[idx].txt, line.pos.x, line.pos.y)
+        drawText(line, idx)
     })
 }
 
@@ -81,21 +85,60 @@ function onAddLine() {
     const lineText = document.querySelector('#lineText').value
     const meme = getMeme()
     let lineCount = meme.lines.length
-
+    // default line
+    let textAlign = 'center'
+    let textStroke = 'black'
+    let textFont = 'Impact'
+    let textFill = 'white'
+    let fontSize = 40
+    let drag = false
     // first line - top
     if (lineCount === 0) {
-        addLine(lineText, 40, { x: gCanvasWidth / 2, y: gCanvasHeight / 10 }, 'center', 'black')
+        addLine(lineText, fontSize, { x: gCanvasWidth / 2, y: gCanvasHeight / 10 }, textAlign, textStroke, drag, textFill, textFont)
     }
     // second line - bottom
     else if (lineCount === 1) {
-        addLine(lineText, 40, { x: gCanvasWidth / 2, y: gCanvasHeight - gCanvasHeight * 0.15 }, 'center', 'black')
+        addLine(lineText, fontSize, { x: gCanvasWidth / 2, y: gCanvasHeight * 0.85 }, textAlign, textStroke, drag, textFill, textFont)
     }
     // rest center
     else {
-        addLine(lineText, 40, { x: gCanvasWidth / 2, y: gCanvasHeight / 2 }, 'center', 'black')
+        addLine(lineText, fontSize, { x: gCanvasWidth / 2, y: gCanvasHeight / 2 }, textAlign, textStroke, drag, textFill, textFont)
     }
 
     meme.selectedLineIdx = meme.lines.length - 1
+    meme.isLineSelected = true
+    renderMeme()
+}
+
+function onSwitchLine() {
+    switchLine()
+    renderMeme()
+}
+
+function onDeleteLine() {
+    deleteLine()
+    renderMeme()
+}
+
+function onSetFont(font) {
+    setFont(font)
+    renderMeme()
+}
+
+// + / - ? 
+function onSetFontSize(size) {
+    setFontSize(size)
+    renderMeme()
+}
+
+function onSetColor(color) {
+    setColor(color)
+    renderMeme()
+}
+
+// L / R / C
+function onSetAlign(align) {
+    setAlign(align)
     renderMeme()
 }
 
@@ -103,6 +146,7 @@ function onAddLine() {
 function addEventListeners() {
     addMouseEvents()
     addTouchEvents()
+    // TODO: add event listeners to buttons
     window.addEventListener('resize', () => {
         resizeCanvas()
         renderMeme()
@@ -126,7 +170,6 @@ function onDown(ev) {
     const pos = getEvPos(ev)
     // console.log('pos:', pos)
     if (!isLineClicked(pos)) return
-
     // console.log('Down')
     setLineDrag(true)
     //Save the pos we start from
@@ -153,6 +196,7 @@ function onMove(ev) {
 function onUp() {
     setLineDrag(false)
     document.body.style.cursor = 'grab'
+    document.body.style.cursor = 'unset'
 }
 
 function getEvPos(ev) {

@@ -6,7 +6,7 @@
 
 /* make things go poof */
 .display-none {
-    display: none;
+    display: none !important;
 }
 
 .flex.space-between {

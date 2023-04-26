@@ -26,33 +26,34 @@
         <section class="meme-toolbox">
             <input type="text" name="lineText" id="lineText" placeholder="Add text here" oninput="onSetLineText(this)">
 
-            <div class="btns-first">
+            <div class="btns-group1">
                 <button class="btn btn-add" onclick="onAddLine()"><i class="fa-solid fa-plus"></i></button>
                 <button class="btn btn-updown">UPDown</button>
-                <button class="btn btn-delete">Delete</button>
+                <button class="btn btn-delete" onclick="onDeleteLine()">Delete</button>
             </div>
 
-            <div class="btns-second">
-                <button class="btn btn-font-up">font+</button>
-                <button class="btn btn-font-up">font-</button>
-                <button class="btn btn-font-up">left</button>
-                <button class="btn btn-font-up">center</button>
-                <button class="btn btn-font-down">right</button>
+            <div class="btns-group2">
+                <button class="btn btn-font-inc" onclick="onSetFontSize(2)">font+</button>
+                <button class="btn btn-font-dec" onclick="onSetFontSize(-2)">font-</button>
+                <button class="btn btn-align-left" onclick="onSetAlign('start')">left</button>
+                <button class="btn btn-align-mid" onclick="onSetAlign('center')">center</button>
+                <button class="btn btn-align-right" onclick="onSetAlign('end')">right</button>
             </div>
 
-            <div class="btns-third">
-                <select value="impact">
-                    <option value="impact">Impact</option>
+            <div class="btns-group3">
+                <select value="Impact" onchange="onSetFont(this.value)">
+                    <option value="Impact">Impact</option>
+                    <option value="Arial">Arial</option>
                 </select>
                 <button class="btn btn-font">A</button>
-                <button class="btn btn-color">Color</button>
+                <input class="clr-select" type="color" oninput="onSetColor(this.value)">
             </div>
 
             <div class="emoji-container">
                 EMOJIS
             </div>
 
-            <div class="btns-last">
+            <div class="btns-group4">
                 <button class="btn btn-share">Share</button>
                 <a class="btn-download" href="#" download onclick="downloadCanvas(this)">Download</a>
             </div>

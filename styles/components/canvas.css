@@ -4,9 +4,11 @@
 .canvas-container {
     grid-column: 1;
     grid-row: 1;
+    place-self: center;
     border: 1px solid black;
+    box-sizing: border-box;
 }
 
 .meme-canvas {
-
+    padding: 5px;
 }
