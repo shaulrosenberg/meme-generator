@@ -8,7 +8,7 @@ var gSavedMemes
 
 function getSavedMemes() {
     let memes = loadFromStorage(STORAGE_KEY)
-    if(!memes || !memes.length) {
+    if (!memes || !memes.length) {
         memes = []
     }
 
@@ -18,11 +18,15 @@ function getSavedMemes() {
 
 function addSavedMeme() {
     const memes = getSavedMemes()
-    memes.push({...getMeme(), src: gElCanvas.toDataURL()})
+    memes.push({ ...getMeme(), src: getMemeSrc() })
     saveMemesToStorage()
 }
 
 function saveMemesToStorage() {
     saveToStorage(STORAGE_KEY, gSavedMemes)
+}
+
+function getMemeSrc() {
+    return gElCanvas.toDataURL()
 }
 

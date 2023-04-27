@@ -18,4 +18,5 @@
 .meme-container {
     display: grid;
     grid-template-columns: 1fr minmax(auto, 50px) 1fr;
+    background-color: var(--clr1);
 }

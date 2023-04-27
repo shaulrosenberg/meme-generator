@@ -13,11 +13,16 @@
 
 .main-nav li {
     padding-block: 20px;
-    padding-inline: 25px;
-    border-inline-end: 2px solid salmon;
 }
 
-.main-nav li:last-of-type {
+.main-nav li a {
+    color: white;
+    font-weight: 400;
+    border-inline-end: 1px solid white;
+    padding-inline: 25px;
+}
+
+.main-nav li:last-of-type a {
     border-inline-end: none;
 }
 

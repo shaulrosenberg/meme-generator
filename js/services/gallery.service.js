@@ -14,8 +14,14 @@ _createImgs()
 // list
 function getImgs() {
     // filter by keywords
-    // const imgs = gImgs.filter(img => img.keywords.contains(gFilterKeyword))
-    return gImgs
+    const elKeyword = document.querySelector('#gallery-search')
+    const keyword = elKeyword.value
+    let imgs = null
+    if (!keyword) imgs = gImgs
+    else {
+        imgs = gImgs.filter(img => img.keywords.includes(keyword))
+    }
+    return imgs
 }
 
 // create

@@ -12,13 +12,31 @@
 
 <body class="main-layout" onload="onInitGallery()">
     <header class="header main-layout full">
-        <div class="logo">Logo</div>
+        <div class="logo"></div>
         <ul class="main-nav flex space-between clean-list">
             <li><a href="#" onclick="onInitGallery()">Gallery</a></li>
             <li><a href="#" onclick="onInitSavedMemes()">Memes</a></li>
             <li><a href="#">About</a></li>
         </ul>
     </header>
+
+    <section class="keywords main-layout full">
+        <label for="gallery-search">Search Gallery: </label>
+        <input list="keywords-list" id="gallery-search" name="gallery-search" onchange="renderGallery()" placeholder="Enter search keyword">
+        <datalist id="keywords-list">
+            <option>funny</option>
+            <option>cat</option>
+            <option>dog</option>
+            <option>meme</option>
+        </datalist>
+        <section class="keywords-list">
+            <!-- add spans and adjust size -->
+            <span>funny</span>
+            <span>cat</span>
+            <span>dog</span>
+            <span>meme</span>
+        </section>
+    </section>
 
     <section class="img-gallery"></section>
 
@@ -27,8 +45,8 @@
             <input type="text" name="lineText" id="lineText" placeholder="Add text here" oninput="onSetLineText(this)">
 
             <div class="btns-group1">
-                <button class="btn btn-add" onclick="onAddLine()"><i class="fa-solid fa-plus"></i></button>
-                <button class="btn btn-updown" onclick="onSwitchLine()">UPDown</button>
+                <button class="btn btn-add" onclick="onAddLine()">+</button>
+                <button class="btn btn-updown" onclick="onSwitchLine()">up down</button>
                 <button class="btn btn-delete" onclick="onDeleteLine()">Delete</button>
             </div>
 
@@ -49,14 +67,16 @@
                 <input class="clr-select" type="color" oninput="onSetColor(this.value)">
             </div>
 
-            <div class="emoji-container">
-                EMOJIS
+            <div class="emoji-container flex space-between">
+                <button class="btn btn-prev" onclick="onPrevEmoji()">prev</button>
+                <div class="emoji-display"></div>
+                <button class="btn btn-next" onclick="onNextEmoji()">next</button>
             </div>
 
             <div class="btns-group4">
                 <button class="btn btn-share">Share</button>
                 <a class="btn-download" href="#" download onclick="downloadCanvas(this)">Download</a>
-                <button class="btn btn-save" onclick="onSaveMeme()">SAVE</button>
+                <button class="btn btn-save" onclick="onSaveMeme()">Save</button>
             </div>
 
         </section>
@@ -70,7 +90,10 @@
     <section class="saved-memes display-none"></section>
     <section class="about display-none"></section>
 
-    <footer class="footer flex full justify-center">Made By Shaul Rosenberg</footer>
+    <footer class="footer flex column full align-center">
+        <div class="logo"></div>
+        <span>Made By Shaul Rosenberg</span>
+    </footer>
 
 
 
@@ -79,10 +102,11 @@
     <script src="js/services/storage.service.js"></script>
     <script src="js/services/meme.service.js"></script>
     <script src="js/services/gallery.service.js"></script>
+    <script src="js/services/save.service.js"></script>
     <script src="js/gallery.controller.js"></script>
     <script src="js/meme.controller.js"></script>
     <script src="js/saved.controller.js"></script>
-    <script src="js/services/save.service.js"></script>
+    
 </body>
 
 </html>

@@ -2,9 +2,16 @@
 .logo {
     grid-column: 2;
     grid-row: 1;
-    /* width: 50px;
-    height: 25px;
-    background-image: url('img/LOGO/LOGO.png'); */
+    width: 8.35rem;
+    height: 1.375em;
+    background-image: url('/img/LOGO/LOGO.png');
+    background-size: contain;
+    background-repeat: no-repeat;
     align-self: center;
     justify-self: start;
+}
+
+.footer .logo {
+    width: 8.35rem;
+    margin-block-end: 1em;
 }

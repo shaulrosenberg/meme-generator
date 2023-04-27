@@ -10,6 +10,7 @@ function onInitSavedMemes() {
     // renderSavedMeme
     hideElement('.img-gallery')
     hideElement('.meme-container')
+    hideElement('.keywords')
     showElement('.saved-memes')
     renderSavedMemes()
 }
@@ -18,10 +19,8 @@ function renderSavedMemes() {
     const savedMemes = getSavedMemes()
     let strHTML = ''
 
-    strHTML = savedMemes.map( meme => 
-    `
-    <img src=${meme.src} onclick='onEditMeme(${meme})'>
-    `
+    strHTML = savedMemes.map(meme =>
+        `<img src=${meme.src} onclick='onEditMeme(${meme})'>`
     ).join('')
 
     const elContainer = document.querySelector('.saved-memes')

@@ -18,12 +18,39 @@ function onInitCanvas() {
     gElCanvas.height = 460
     gCtx = gElCanvas.getContext('2d')
     resizeCanvas()
+    renderEmojis()
     addEventListeners()
 }
 
 function renderMeme() {
     const meme = getMeme()
     drawImg(meme.selectedImgId)
+}
+
+function renderEmojis() {
+    const elEmojiContainer = document.querySelector('.emoji-display')
+    const emojis = getEmojis()
+    let emojiHTML = ''
+
+    emojiHTML = emojis.map(emoji => `<span class="emoji" onclick="onAddEmoji('${emoji}')">${emoji}</span>`).join('')
+
+    elEmojiContainer.innerHTML = emojiHTML
+}
+
+function onAddEmoji(emojiStr) {
+    const meme = getMeme()
+    addLine(emojiStr, 40, { x: gCanvasWidth / 2, y: gCanvasHeight / 2 }, 'center', 'black', false, 'white', 'Impact')
+    meme.selectedLineIdx = meme.lines.length - 1
+    meme.isLineSelected = true
+    renderMeme()
+}
+
+function onPrevEmoji() {
+    setEmojiIdx(-1)
+}
+
+function onNextEmoji() {
+    setEmojiIdx(1)
 }
 
 // called when text input is changed (onchange event)

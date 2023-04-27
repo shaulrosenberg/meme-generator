@@ -3,25 +3,19 @@
 const DIRECTION_BOTTOM = 1
 const DIRECTION_TOP = -1
 
-// global - init with 2 empty lines? txt: Enter Text Here
+const EMOJI_DISPLAY_COUNT = 4
+
+// global vars
 var gMeme = {
     selectedImgId: 5,
     lineDirection: DIRECTION_BOTTOM,
     isLineSelected: false, // need this for 2 cases: editing a selected line or simply adding a new line
     selectedLineIdx: 0,
-    lines: [
-        // {
-        //     txt: 'I sometimes eat Falafel',
-        //     size: 20,
-        //     pos: { x: 150, y: 150 }, // update this field when addLine(), or when editing selected line
-        //     align: 'left',
-        //     color: 'red',
-        //     isDrag: false,
-        //     fill: 'white'
-        //     font: 'Arial'
-        // }
-    ]
+    lines: []
 }
+
+var gEmojis = ['😂', '🤣', '❤', '👌', '✔', '🎁', '🐱‍👓', '😎']
+var gEmojiIdx = 0
 
 // return current meme we're working on
 function getMeme() {
@@ -32,6 +26,19 @@ function getLine() {
     // check isSelected?
     if (!gMeme.lines.length) return null
     return gMeme.lines[gMeme.selectedLineIdx]
+}
+
+function getEmojis() {
+    let startIdx = gEmojiIdx * EMOJI_DISPLAY_COUNT
+    let endIdx = startIdx + EMOJI_DISPLAY_COUNT
+
+    return gEmojis.slice(startIdx, endIdx)
+}
+
+function setEmojiIdx(diff) {
+    gEmojiIdx += diff
+    if (gEmojiIdx === 0) gEmojiIdx = Math.floor(gEmojis.length / EMOJI_DISPLAY_COUNT) - 1
+    else if (gEmojiIdx === Math.floor(gEmojis.length / EMOJI_DISPLAY_COUNT) - 1) gEmojiIdx = 0
 }
 
 function getLineText() {
