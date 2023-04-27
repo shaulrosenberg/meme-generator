@@ -47,10 +47,12 @@ function onAddEmoji(emojiStr) {
 
 function onPrevEmoji() {
     setEmojiIdx(-1)
+    renderEmojis()
 }
 
 function onNextEmoji() {
     setEmojiIdx(1)
+    renderEmojis()
 }
 
 // called when text input is changed (onchange event)
@@ -176,6 +178,11 @@ function onSetFontSize(size) {
 
 function onSetColor(color) {
     setColor(color)
+    renderMeme()
+}
+
+function onSetFill(color) {
+    setFill(color)
     renderMeme()
 }
 

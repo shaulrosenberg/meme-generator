@@ -37,8 +37,8 @@ function getEmojis() {
 
 function setEmojiIdx(diff) {
     gEmojiIdx += diff
-    if (gEmojiIdx === 0) gEmojiIdx = Math.floor(gEmojis.length / EMOJI_DISPLAY_COUNT) - 1
-    else if (gEmojiIdx === Math.floor(gEmojis.length / EMOJI_DISPLAY_COUNT) - 1) gEmojiIdx = 0
+    if(gEmojiIdx < 0) gEmojiIdx = Math.floor(gEmojis.length / EMOJI_DISPLAY_COUNT) - 1
+    else if (gEmojiIdx === Math.floor(gEmojis.length / EMOJI_DISPLAY_COUNT)) gEmojiIdx = 0
 }
 
 function getLineText() {
@@ -122,6 +122,11 @@ function setFontSize(size) {
 function setColor(color) {
     if (!gMeme.isLineSelected) return
     gMeme.lines[gMeme.selectedLineIdx].color = color
+}
+
+function setFill(color) {
+    if (!gMeme.isLineSelected) return
+    gMeme.lines[gMeme.selectedLineIdx].fill = color
 }
 
 function setLineDrag(newState) {

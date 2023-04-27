@@ -44,6 +44,9 @@
     grid-column: 1/-1;
     align-self: center;
     justify-self: center;
+    border-radius: 0.75rem;
+    background-color: white;
+    padding-block: 1em;
 }
 
 .btns-group4 {
@@ -62,8 +65,89 @@
 }
 
 /* toolbox buttons */
+.meme-toolbox .btn {
+    background-size: 66% 66%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 
+.btn-add {
+    background-color: white;
+    background-image: url('/img/ICONS/add.png');
+}
 
+.btn-updown {
+    background-color: white;
+    background-image: url('/img/ICONS/up-and-down-opposite-double-arrows-side-by-side.png');
+}
+
+.btn-delete {
+    background-color: white;
+    background-image: url('/img/ICONS/trash.png');
+}
+
+.btn-font-inc {
+    background-color: white;
+    background-image: url('/img/ICONS/increase-font.png');
+}
+
+.btn-font-dec {
+    background-color: white;
+    background-image: url('/img/ICONS/decrease-font.png');
+}
+
+.btn-align-left {
+    background-color: white;
+    background-image: url('/img/ICONS/align-to-left.png');
+}
+
+.btn-align-right {
+    background-color: white;
+    background-image: url('/img/ICONS/align-to-right.png');
+}
+
+.btn-align-mid {
+    background-color: white;
+    background-image: url('/img/ICONS/center-text-alignment.png');
+}
+
+.clr-stroke {
+    opacity: 0;
+}
+
+.clr-stroke:hover {
+    cursor: pointer;
+}
+
+.clr-fill {
+    opacity: 0;
+}
+
+.clr-fill:hover {
+    cursor: pointer;
+}
+
+.btn-clr-stroke {
+    background-color: white;
+    background-image: url('/img/ICONS/text-stroke.png');
+}
+
+.btn-clr-fill {
+    background-color: white;
+    background-image: url('/img/ICONS/paint-board-and-brush.png');
+}
+
+.select-font {
+    height: 3.75rem;
+}
+
+.btn-prev {
+    background-color: white;
+}
+
+.btn-next {
+    background-color: white;
+}
 
 .btn-share {
     font-family: Montserrat;
@@ -94,9 +178,9 @@
 
 /* emoji span */
 .emoji {
-    padding-block: 1em;
     display: inline-block;
-    padding-inline: 1em;
+    font-size: 2.5rem;
+    padding-inline: 0.25rem;
     cursor: pointer;
 }
 

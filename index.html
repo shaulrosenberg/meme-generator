@@ -45,32 +45,33 @@
             <input type="text" name="lineText" id="lineText" placeholder="Add text here" oninput="onSetLineText(this)">
 
             <div class="btns-group1">
-                <button class="btn btn-add" onclick="onAddLine()">+</button>
-                <button class="btn btn-updown" onclick="onSwitchLine()">up down</button>
-                <button class="btn btn-delete" onclick="onDeleteLine()">Delete</button>
+                <button class="btn btn-add" onclick="onAddLine()"></button>
+                <button class="btn btn-updown" onclick="onSwitchLine()"></button>
+                <button class="btn btn-delete" onclick="onDeleteLine()"></button>
             </div>
 
             <div class="btns-group2">
-                <button class="btn btn-font-inc" onclick="onSetFontSize(2)">font+</button>
-                <button class="btn btn-font-dec" onclick="onSetFontSize(-2)">font-</button>
-                <button class="btn btn-align-left" onclick="onSetAlign('start')">left</button>
-                <button class="btn btn-align-mid" onclick="onSetAlign('center')">center</button>
-                <button class="btn btn-align-right" onclick="onSetAlign('end')">right</button>
+                <button class="btn btn-font-inc" onclick="onSetFontSize(2)"></button>
+                <button class="btn btn-font-dec" onclick="onSetFontSize(-2)"></button>
+                <button class="btn btn-align-left" onclick="onSetAlign('start')"></button>
+                <button class="btn btn-align-mid" onclick="onSetAlign('center')"></button>
+                <button class="btn btn-align-right" onclick="onSetAlign('end')"></button>
             </div>
 
             <div class="btns-group3">
-                <select value="Impact" onchange="onSetFont(this.value)">
+                <select class="select-font" value="Impact" onchange="onSetFont(this.value)">
                     <option value="Impact">Impact</option>
                     <option value="Arial">Arial</option>
                 </select>
-                <button class="btn btn-font">A</button>
-                <input class="clr-select" type="color" oninput="onSetColor(this.value)">
+                
+                <button class="btn btn-clr-stroke"><input class="clr-stroke" type="color" oninput="onSetColor(this.value)"></button>
+                <button class="btn btn-clr-fill"><input class="clr-fill" type="color" oninput="onSetFill(this.value)"></button>
             </div>
 
             <div class="emoji-container flex space-between">
-                <button class="btn btn-prev" onclick="onPrevEmoji()">prev</button>
+                <button class="btn btn-prev" onclick="onPrevEmoji()"><i class="fa-sharp fa-solid fa-arrow-left"></i></button>
                 <div class="emoji-display"></div>
-                <button class="btn btn-next" onclick="onNextEmoji()">next</button>
+                <button class="btn btn-next" onclick="onNextEmoji()"><i class="fa-solid fa-arrow-right"></i></button>
             </div>
 
             <div class="btns-group4">

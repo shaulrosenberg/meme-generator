@@ -1,17 +1,11 @@
 /* MOBILE */
 
-@media (max-width: 640px) {
-    body {}
-}
-
-
 @media (min-width: 640px) {
     body {
         /* background-color: pink; */
     }
 }
 
-@media (max-width: 860px) {}
 
 /* MEDIUM */
 @media (min-width: 860px) {
