@@ -48,6 +48,7 @@ function resizeCanvas() {
     gCanvasHeight = gElCanvas.height
 }
 
+// call this drawImg&Lines
 function drawImg(imgId) {
     const elImg = new Image() // Create a new html img element
     elImg.src = `img/${imgId}.jpg` // Send a network req to get that image, define the img src
@@ -80,7 +81,7 @@ function drawText(line, idx) {
 function drawLines() {
     const meme = getMeme()
     // if no lines -> add empty line and have it marked for filling
-    if(!meme.lines.length && gIsFirstLoad) {
+    if (!meme.lines.length && gIsFirstLoad) {
         onAddLine()
         gIsFirstLoad = false
     }
@@ -252,14 +253,15 @@ function getEvPos(ev) {
     return pos
 }
 
-//////////////////////////////////////////////////
-
-
+/////////////////////////////////////////////////
 function downloadCanvas(elLink) {
-    const data = gElCanvas.toDataURL()
+    // TODO: fix this
+    getMeme().isLineSelected = false
+    renderMeme()
 
-    elLink.href = data // Put it on the link
-    elLink.download = 'my-img' // Can change the name of the file
+    const data = gElCanvas.toDataURL()
+    elLink.href = data
+    elLink.download = 'my-img'
 }
 
 function showMemeEdit() {

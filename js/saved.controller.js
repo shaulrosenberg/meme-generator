@@ -13,3 +13,15 @@ function onInitSavedMemes() {
 function renderSavedMemes() {
 
 }
+
+function onSaveMeme() {
+    addSavedMeme()
+}
+
+function onRemoveMeme() {
+    
+}
+
+function onEditMeme() {
+
+}

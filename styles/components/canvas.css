@@ -3,6 +3,7 @@
     grid-row: 1;
     place-self: center;
     box-sizing: border-box;
+    margin-block: 1em;
     max-width: 465px;
 }
 

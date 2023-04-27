@@ -1,6 +1,5 @@
 'use strict'
 
-const MEME_KEY = 'memeDB'
 const DIRECTION_BOTTOM = 1
 const DIRECTION_TOP = -1
 
@@ -86,14 +85,6 @@ function setSelectedLine(pos) {
     else {
         gMeme.isLineSelected = false
     }
-}
-
-function saveMeme() {
-    // pseudo:
-    // createSavedMeme(id, canvas.toDataURL())
-    // save to memeDB
-    // loadFromStorage() and render to saved meme gallery
-    saveToStorage(MEME_KEY, gMeme)
 }
 
 // UPDATE

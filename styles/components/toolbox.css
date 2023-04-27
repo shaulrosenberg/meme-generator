@@ -5,27 +5,30 @@
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 2fr 2fr 2fr 1fr;
     border: 1px solid black;
+    margin-block: 1em;
 }
 
 .meme-toolbox #lineText {
     grid-row: 1;
     grid-column: 1/-1;
     align-self: start;
-    height: 2em;
+    height: 3em;
+    margin: 1em;
 }
 
 .btns-group1 {
     grid-row: 1;
     grid-column: 1/-1;
-    align-self: center;
+    align-self: end;
     justify-self: center;
 }
 
 .btns-group2 {
     grid-row: 2;
     grid-column: 1/-1;
-    align-self: start;
+    align-self: center;
     justify-self: center;
+    margin-block-end: 2em;
 }
 
 .btns-group3 {
@@ -39,6 +42,7 @@
 .emoji-container {
     grid-row: 3;
     grid-column: 1/-1;
+    align-self: center;
     justify-self: center;
 }
 
@@ -46,6 +50,7 @@
     grid-row: 4;
     grid-column: 1/-1;
     justify-self: center;
+    align-self: center;
 }
 
 .btn {
