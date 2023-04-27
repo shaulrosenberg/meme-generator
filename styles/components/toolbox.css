@@ -73,42 +73,42 @@
 
 .btn-add {
     background-color: white;
-    background-image: url('img/ICONS/add.png');
+    background-image: url('/img/ICONS/add.png');
 }
 
 .btn-updown {
     background-color: white;
-    background-image: url('img/ICONS/up-and-down-opposite-double-arrows-side-by-side.png');
+    background-image: url('/img/ICONS/up-and-down-opposite-double-arrows-side-by-side.png');
 }
 
 .btn-delete {
     background-color: white;
-    background-image: url('img/ICONS/trash.png');
+    background-image: url('/img/ICONS/trash.png');
 }
 
 .btn-font-inc {
     background-color: white;
-    background-image: url('img/ICONS/increase-font.png');
+    background-image: url('/img/ICONS/increase-font.png');
 }
 
 .btn-font-dec {
     background-color: white;
-    background-image: url('img/ICONS/decrease-font.png');
+    background-image: url('/img/ICONS/decrease-font.png');
 }
 
 .btn-align-left {
     background-color: white;
-    background-image: url('img/ICONS/align-to-left.png');
+    background-image: url('/img/ICONS/align-to-left.png');
 }
 
 .btn-align-right {
     background-color: white;
-    background-image: url('img/ICONS/align-to-right.png');
+    background-image: url('/img/ICONS/align-to-right.png');
 }
 
 .btn-align-mid {
     background-color: white;
-    background-image: url('img/ICONS/center-text-alignment.png');
+    background-image: url('/img/ICONS/center-text-alignment.png');
 }
 
 .clr-stroke {
@@ -129,12 +129,12 @@
 
 .btn-clr-stroke {
     background-color: white;
-    background-image: url('img/ICONS/text-stroke.png');
+    background-image: url('/img/ICONS/text-stroke.png');
 }
 
 .btn-clr-fill {
     background-color: white;
-    background-image: url('img/ICONS/paint-board-and-brush.png');
+    background-image: url('/img/ICONS/paint-board-and-brush.png');
 }
 
 .select-font {
