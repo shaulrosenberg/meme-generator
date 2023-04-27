@@ -267,3 +267,7 @@ function downloadCanvas(elLink) {
 function showMemeEdit() {
     document.querySelector('.meme-container').classList.remove('display-none')
 }
+
+function hideMemeEdit() {
+    document.querySelector('.meme-container').classList.add('display-none')
+}

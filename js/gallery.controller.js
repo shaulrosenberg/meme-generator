@@ -3,6 +3,9 @@
 var gIsFirstLoad = false
 
 function onInitGallery() {
+    hideElement('.meme-container')
+    hideElement('.saved-memes')
+    showElement('.img-gallery')
     renderGallery()
 }
 
@@ -22,11 +25,6 @@ function renderGallery() {
     elGallery.innerHTML = imgsHTML
 }
 
-function hideGallery() {
-    const elGallery = document.querySelector('.img-gallery')
-    elGallery.classList.add('display-none')
-}
-
 // TODO: upload own image to gallery
 function onAddImage() {
 
@@ -36,8 +34,8 @@ function onImgSelect(imgId) {
     console.log(imgId)
     gIsFirstLoad = true
     setImg(imgId)
-    hideGallery()
-    showMemeEdit()
+    hideElement('.img-gallery')
+    showElement('.meme-container')
     onInitCanvas()
     renderMeme()
 }
