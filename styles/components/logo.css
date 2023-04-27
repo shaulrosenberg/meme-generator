@@ -4,7 +4,7 @@
     grid-row: 1;
     width: 8.35rem;
     height: 1.375em;
-    background-image: url('/img/LOGO/LOGO.png');
+    background-image: url('img/LOGO/LOGO.png');
     background-size: contain;
     background-repeat: no-repeat;
     align-self: center;
