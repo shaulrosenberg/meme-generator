@@ -1,7 +1,6 @@
 .img-gallery {
-    grid-column: 2;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 2em;
     padding-block: 2em;
 }

@@ -4,7 +4,7 @@ const IMAGE_COUNT = 18
 const IMAGE_KEY = 'imageDB'
 
 // global vars
-var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
+var gKeywordSearchCountMap
 var gFilterKeyword = 'funny'
 var gImgs
 // var gImgs = [{ id: 1, url: 'img/1.jpg', keywords: ['funny', 'cat'] }];
@@ -48,6 +48,16 @@ function _createImgs() {
 // read
 function findImgById(imgId) {
     return gImgs.find(img => img.id === imgId)
+}
+
+function countKeywords () {
+    return gImgs.reduce((map, img) => {
+        img.keywords.forEach(keyword => {
+            if(!map[keyword]) map[keyword] = 1
+            else map[keyword]++
+        })
+        return map
+    }, {})
 }
 // update
 // delete

@@ -8,6 +8,7 @@ function onInitGallery() {
     showElement('.img-gallery')
     showElement('.keywords')
     renderGallery()
+    renderKeywords()
 }
 
 function renderGallery() {
@@ -27,6 +28,26 @@ function renderGallery() {
 
     const elGallery = document.querySelector('.img-gallery')
     elGallery.innerHTML = imgsHTML
+}
+
+function renderKeywords() {
+    const keywordsMap = countKeywords()
+    const elKeywordContainer = document.querySelector('.keywords-list')
+    let keywordHTML = ''
+    for (var key in keywordsMap) {
+        const fontSize = Math.floor(keywordsMap[key] * 3)
+        const min = 16;
+        const max = 48;
+        const normalizedFontSize = (fontSize - min) / (max - min) * (max - min + 1) + min;
+        keywordHTML += `<span onclick="onClickKeyword(this)" style="font-size: ${Math.floor(normalizedFontSize)}px">${key}</span>`
+    }
+
+    elKeywordContainer.innerHTML = keywordHTML
+}
+
+function onClickKeyword(elKeyword) {
+    document.querySelector('#gallery-search').value = elKeyword.innerText.toLowerCase()
+    renderGallery()
 }
 
 // TODO: upload own image to gallery

@@ -14,8 +14,8 @@ var gStartPos
 // ?
 function onInitCanvas() {
     gElCanvas = document.querySelector('.meme-canvas')
-    gElCanvas.width = 460
-    gElCanvas.height = 460
+    gElCanvas.width = 500
+    gElCanvas.height = 500
     gCtx = gElCanvas.getContext('2d')
     resizeCanvas()
     renderEmojis()
@@ -71,10 +71,12 @@ function onSetLineText(elText) {
 function resizeCanvas() {
     const elContainer = document.querySelector('.canvas-container')
     gElCanvas.width = elContainer.offsetWidth
-    gElCanvas.width = elContainer.offsetHeight
+    gElCanvas.height = elContainer.offsetHeight
 
     gCanvasWidth = gElCanvas.width
     gCanvasHeight = gElCanvas.height
+
+    renderMeme()
 }
 
 // call this drawImg&Lines

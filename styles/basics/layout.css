@@ -2,7 +2,7 @@
 
 .main-layout {
     display: grid;
-    grid-template-columns: 1fr minmax(auto, 980px) 1fr;
+    grid-template-columns: 1fr minmax(auto, var(--s)) 1fr;
     /* grid-row-gap: 80px; */
 }
 
@@ -17,6 +17,8 @@
 
 .meme-container {
     display: grid;
-    grid-template-columns: 1fr minmax(auto, 50px) 1fr;
+    grid-template-columns: minmax(auto, var(--s));
     background-color: var(--clr1);
+    margin: 0px auto;
+    justify-self: center;
 }

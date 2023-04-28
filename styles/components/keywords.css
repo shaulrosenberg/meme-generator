@@ -22,5 +22,12 @@
 }
 
 .keywords-list span {
-    padding-inline-end: 2rem;
+    margin-inline-end: 2rem;
+    text-transform: capitalize;
+    cursor: pointer;
+    color: var(--clr4)
+}
+
+.keywords-list span:hover {
+    border-bottom: 1px solid var(--clr4);
 }

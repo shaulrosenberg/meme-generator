@@ -10,7 +10,7 @@ function makeId(length = 6) {
 }
 
 function getRandomKeywords(length = 2) {
-    let keywords = ['funny', 'cat', 'dog', 'meme', 'sad']
+    let keywords = ['funny', 'cat', 'dog', 'meme', 'baby']
     let randKeywords = []
     
     for (let i = 0; i < length; i++) {

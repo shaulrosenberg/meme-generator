@@ -28,19 +28,23 @@
             <option>cat</option>
             <option>dog</option>
             <option>meme</option>
+            <option>sad</option>
         </datalist>
         <section class="keywords-list">
             <!-- add spans and adjust size -->
-            <span>funny</span>
-            <span>cat</span>
-            <span>dog</span>
-            <span>meme</span>
+            
         </section>
     </section>
 
     <section class="img-gallery"></section>
 
     <section class="meme-container display-none">
+
+        <section class="canvas-container">
+            <canvas class="meme-canvas"></canvas>
+        </section>
+
+        
         <section class="meme-toolbox">
             <input type="text" name="lineText" id="lineText" placeholder="Add text here" oninput="onSetLineText(this)">
 
@@ -82,9 +86,7 @@
 
         </section>
 
-        <section class="canvas-container">
-            <canvas class="meme-canvas"></canvas>
-        </section>
+        
     </section>
 
     <!-- deal with these later on -->

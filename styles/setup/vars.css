@@ -4,11 +4,12 @@
     --clr-brand: #ff7f00;
     --clr1: #e3e3e3;
     --clr3: #292929;
+    --clr4: #040a2c;
 
     /* LAYOUT */
     --layout-padding: 1.25rem;
     --site-width: max-content;
-    --l: 980px;
+    --l: 1200px;
     --m: 860px;
     --s: 640px;
 }
