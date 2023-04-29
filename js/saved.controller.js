@@ -18,12 +18,16 @@ function renderSavedMemes() {
     const savedMemes = getSavedMemes()
     let strHTML = ''
 
-    strHTML = savedMemes.map(meme =>
-        `<img src=${meme.src} onclick='onEditMeme(${meme.selectedImgId})'>`
-    ).join('')
+    if (!savedMemes || !savedMemes.length) {
+        strHTML = `Create a meme and save it first!`
+    }
+    else {
+        strHTML = savedMemes.map(meme =>
+            `<img src=${meme.src} onclick='onEditMeme(${meme.selectedImgId})'>`
+        ).join('')
+    }
 
     const elContainer = document.querySelector('.saved-memes')
-
     elContainer.innerHTML = strHTML
 }
 

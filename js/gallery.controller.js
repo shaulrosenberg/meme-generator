@@ -5,6 +5,7 @@ var gIsFirstLoad = false
 function onInitGallery() {
     hideElement('.meme-container')
     hideElement('.saved-memes')
+    hideElement('.about')
     showElement('.img-gallery')
     showElement('.keywords')
     renderGallery()
