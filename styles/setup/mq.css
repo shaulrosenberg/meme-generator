@@ -128,9 +128,10 @@
 
     .about-details {
         align-self: center;
-        justify-content: space-between;
+        align-items: flex-start;
+        margin-inline-start: 1em;
+        text-align: start;
     }
-
 }
 
 /* LARGE */

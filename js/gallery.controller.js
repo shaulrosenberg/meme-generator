@@ -63,6 +63,7 @@ function onImgSelect(imgId) {
     clearMemeLines()
     hideElement('.img-gallery')
     hideElement('.keywords')
+    hideElement('.about')
     showElement('.meme-container')
     onInitCanvas()
     renderMeme()

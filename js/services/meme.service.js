@@ -191,5 +191,3 @@ function switchLine() {
 
     gMeme.isLineSelected = true
 }
-
-// READ

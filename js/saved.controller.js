@@ -7,6 +7,7 @@ function onInitSavedMemes() {
     hideElement('.meme-container')
     hideElement('.keywords')
     showElement('.saved-memes')
+    hideElement('.about')
     renderSavedMemes()
     removeActiveLink('.gallery-link')
     removeActiveLink('.about-link')
@@ -32,12 +33,6 @@ function onSaveMeme() {
     // when clicking to edit a meme -> go back to editor and load gMeme object
     addSavedMeme()
 }
-
-// ?
-function onRemoveMeme() {
-
-}
-
 
 function onEditMeme(imgId) {
     setCurrentMeme(imgId)

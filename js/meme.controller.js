@@ -286,6 +286,7 @@ function getEvPos(ev) {
 /////////////////////////////////////////////////
 function downloadCanvas(elLink) {
     // TODO: fix this
+    // cleanSelection()
     getMeme().isLineSelected = false
     renderMeme()
 
