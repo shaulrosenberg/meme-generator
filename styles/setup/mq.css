@@ -121,6 +121,16 @@
         width: 5rem;
     }
 
+    .about-container {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .about-details {
+        align-self: center;
+        justify-content: space-between;
+    }
+
 }
 
 /* LARGE */

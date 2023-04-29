@@ -109,6 +109,29 @@ function onInitAbout() {
     hideElement('.saved-memes')
     hideElement('.keywords')
     showElement('.about')
+    renderAbout()
+}
+
+function renderAbout() {
+    const elAboutContainer = document.querySelector('.about-container')
+    let strHTML = ''
+
+    strHTML += `<img src='img/1.jpg'>
+                <article class='about-details'>
+                    <h2>Shaul Rosenberg</h2>
+                    <p>        
+                        I am a team player. I am outgoing, dedicated, and open-minded. I get across to people and adjust to changes with ease. 
+                        I believe that a person should work on developing their professional skills and learning new things all the time. Currently, 
+                        I am looking for new career opportunities.
+                    </p>
+                    <div class='socials'>
+                        <a href='https://www.facebook.com/shaul.rosenberg1/'><i class="fa-brands fa-facebook"></i></a>
+                        <a href='https://www.linkedin.com/in/shaul-rosenberg/'><i class="fa-brands fa-linkedin"></i></a>
+                        <a href='https://github.com/shaulrosenberg'><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </article>`
+
+    elAboutContainer.innerHTML = strHTML
 }
 
 
