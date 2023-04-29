@@ -11,6 +11,9 @@
 </head>
 
 <body class="main-layout" onload="onInitGallery()">
+
+    <div class="main-screen menu-background"></div>
+
     <header class="header main-layout full">
         <div class="logo"></div>
         <ul class="main-nav flex space-between clean-list">
@@ -18,10 +21,11 @@
             <li><a href="#" onclick="onInitSavedMemes()">Memes</a></li>
             <li><a href="#">About</a></li>
         </ul>
+        <button class="hamburger" onclick="toggleMenu()"><i class="fa-sharp fa-solid fa-bars"></i></button>
     </header>
 
     <section class="keywords main-layout full">
-        <label for="gallery-search">Search Gallery: </label>
+        <!-- <label for="gallery-search">Search Gallery: </label> -->
         <input list="keywords-list" id="gallery-search" name="gallery-search" onchange="renderGallery()" placeholder="Enter search keyword">
         <datalist id="keywords-list">
             <option>funny</option>
@@ -80,7 +84,7 @@
 
             <div class="btns-group4">
                 <button class="btn btn-share">Share</button>
-                <a class="btn-download" href="#" download onclick="downloadCanvas(this)">Download</a>
+                <a class="btn-download" href="#" onclick="downloadCanvas(this)">Download</a>
                 <button class="btn btn-save" onclick="onSaveMeme()">Save</button>
             </div>
 

@@ -47,6 +47,12 @@ function getLineText() {
     return line.txt
 }
 
+function clearMemeLines() {
+    gMeme.lines = []
+    gMeme.selectedLineIdx = 0
+    gMeme.isLineSelected = false
+}
+
 // calc x,y xEnd, yEnd (for drag and drop and selecting text lines)
 function getLineBorder(line) {
     let blockPadding = 10

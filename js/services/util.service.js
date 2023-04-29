@@ -46,3 +46,8 @@ function showElement(selector) {
 function hideElement(selector) {
     document.querySelector(selector).classList.add('display-none')
 }
+
+function setActiveLink(selector) {
+    // get all header links -> remove active
+    // set active for selector
+}

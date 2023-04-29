@@ -172,7 +172,6 @@ function onSetFont(font) {
     renderMeme()
 }
 
-// + / - ? 
 function onSetFontSize(size) {
     setFontSize(size)
     renderMeme()
@@ -200,7 +199,7 @@ function onSetSelectedLine(pos) {
     renderMeme()
 }
 
-// add events listeners to form inputs? and canvas
+// add event listeners
 function addEventListeners() {
     addMouseEvents()
     addTouchEvents()
@@ -233,7 +232,7 @@ function onDown(ev) {
         renderMeme()
         return
     }
-    // console.log('Down')
+    // set selected line
     onSetSelectedLine(pos)
     setLineDrag(true)
     //Save the pos we start from
@@ -245,7 +244,6 @@ function onMove(ev) {
     if (!getLine()) return
     const { isDrag } = getLine()
     if (!isDrag) return
-    // console.log('Move')
 
     const pos = getEvPos(ev)
     // Calc the delta , the diff we moved
@@ -254,7 +252,7 @@ function onMove(ev) {
     moveLine(dx, dy)
     // Save the last pos , we remember where we`ve been and move accordingly
     gStartPos = pos
-    // The canvas is render again after every move
+    // The canvas is rendered again after every move
     renderMeme()
 }
 
@@ -270,21 +268,17 @@ function getEvPos(ev) {
         x: ev.offsetX,
         y: ev.offsetY,
     }
-    // console.log('pos:', pos)
     // Check if its a touch ev
     if (TOUCH_EVS.includes(ev.type)) {
         //soo we will not trigger the mouse ev
         ev.preventDefault()
         //Gets the first touch point
         ev = ev.changedTouches[0]
-        //Calc the right pos according to the touch screen
-        // console.log('ev.pageX:', ev.pageX)
-        // console.log('ev.pageY:', ev.pageY)
+
         pos = {
             x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
             y: ev.pageY - ev.target.offsetTop - ev.target.clientTop,
         }
-        // console.log('pos:', pos)
     }
     return pos
 }
@@ -295,9 +289,9 @@ function downloadCanvas(elLink) {
     getMeme().isLineSelected = false
     renderMeme()
 
+    elLink.download = 'my-img'
     const data = gElCanvas.toDataURL()
     elLink.href = data
-    elLink.download = 'my-img'
 }
 
 function showMemeEdit() {

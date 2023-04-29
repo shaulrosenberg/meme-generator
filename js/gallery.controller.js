@@ -7,13 +7,12 @@ function onInitGallery() {
     hideElement('.saved-memes')
     showElement('.img-gallery')
     showElement('.keywords')
+    // cleanMeme() incase of editing
     renderGallery()
     renderKeywords()
 }
 
 function renderGallery() {
-    // call getImgs
-    // map getImgs to HTML elements and append to DOM
     const imgs = getImgs()
     let imgsHTML = ''
 
@@ -59,6 +58,7 @@ function onImgSelect(imgId) {
     console.log(imgId)
     gIsFirstLoad = true
     setImg(imgId)
+    clearMemeLines()
     hideElement('.img-gallery')
     hideElement('.keywords')
     showElement('.meme-container')
@@ -92,6 +92,10 @@ function onImgSelect(imgId) {
 //     // Draw the img on the canvas
 //     gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
 // }
+
+function toggleMenu() {
+    document.body.classList.toggle('menu-open');
+}
 
 
 

@@ -5,20 +5,31 @@
     padding-block: 2em;
 }
 
+.img-gallery img {
+    transition: 0.300s;
+}
+
 .img-gallery img:hover {
     cursor: pointer;
+    box-shadow: 0 0 10px 3px white;
+    scale: 1.05;
 }
 
 .saved-memes {
-    grid-column: 2;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 2em;
     padding-block: 2em;
 }
 
+.saved-memes img {
+    transition: 0.600s;
+}
+
 .saved-memes img:hover {
     cursor: pointer;
+    box-shadow: 0 0 10px 3px white;
+    scale: 1.05;
 }
 
 .add-image {

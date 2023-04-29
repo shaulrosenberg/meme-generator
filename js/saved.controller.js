@@ -20,7 +20,7 @@ function renderSavedMemes() {
     let strHTML = ''
 
     strHTML = savedMemes.map(meme =>
-        `<img src=${meme.src} onclick='onEditMeme(${meme})'>`
+        `<img src=${meme.src} onclick='onEditMeme(${meme.selectedImgId})'>`
     ).join('')
 
     const elContainer = document.querySelector('.saved-memes')
@@ -41,6 +41,11 @@ function onRemoveMeme() {
 }
 
 
-function onEditMeme(meme) {
-    // 
+function onEditMeme(imgId) {
+    setCurrentMeme(imgId)
+    hideElement('.saved-memes')
+    hideElement('.img-gallery')
+    showElement('.meme-container')
+    onInitCanvas()
+    renderMeme()
 }
