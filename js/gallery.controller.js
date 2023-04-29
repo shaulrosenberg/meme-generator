@@ -7,9 +7,11 @@ function onInitGallery() {
     hideElement('.saved-memes')
     showElement('.img-gallery')
     showElement('.keywords')
-    // cleanMeme() incase of editing
     renderGallery()
     renderKeywords()
+    removeActiveLink('.memes-link')
+    removeActiveLink('.about-link')
+    addActiveLink('.gallery-link')
 }
 
 function renderGallery() {
@@ -68,33 +70,45 @@ function onImgSelect(imgId) {
 
 
 // The next 2 functions handle IMAGE UPLOADING to img tag from file system:
-// function onImgInput(ev) {
-//     loadImageFromInput(ev, renderImg)
-// }
+function onImgInput(ev) {
+    loadImageFromInput(ev, renderImg)
+}
 
-// // CallBack func will run on success load of the img
-// function loadImageFromInput(ev, onImageReady) {
-//     const reader = new FileReader()
-//     // After we read the file
-//     reader.onload = function (event) {
-//         let img = new Image() // Create a new html img element
-//         img.src = event.target.result // Set the img src to the img file we read
-//         // Run the callBack func, To render the img on the canvas
-//         img.onload = onImageReady.bind(() => {
-//             gImgs.push(_createImg(19, `${img.src}`, getRandomKeywords()))
-//         }, img)
-//     }
-//     reader.readAsDataURL(ev.target.files[0]) // Read the file we picked
-//     onImgSelect(19)
-// }
+// CallBack func will run on success load of the img
+function loadImageFromInput(ev, onImageReady) {
+    const reader = new FileReader()
+    // After we read the file
+    reader.onload = function (event) {
+        let img = new Image() // Create a new html img element
+        img.src = event.target.result // Set the img src to the img file we read
+        // Run the callBack func, To render the img on the canvas
+        img.onload = onImageReady.bind(null, img)
+    }
+    reader.readAsDataURL(ev.target.files[0]) // Read the file we picked
+}
 
-// function renderImg(img) {
-//     // Draw the img on the canvas
-//     gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
-// }
+function renderImg(img) {
+    // Draw the img on the canvas
+    hideElement('.img-gallery')
+    hideElement('.keywords')
+    showElement('.meme-container')
+    onInitCanvas()
+    gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
+}
 
 function toggleMenu() {
     document.body.classList.toggle('menu-open');
+}
+
+function onInitAbout() {
+    removeActiveLink('.memes-link')
+    removeActiveLink('.gallery-link')
+    addActiveLink('.about-link')
+    hideElement('.meme-container')
+    hideElement('.img-gallery')
+    hideElement('.saved-memes')
+    hideElement('.keywords')
+    showElement('.about')
 }
 
 

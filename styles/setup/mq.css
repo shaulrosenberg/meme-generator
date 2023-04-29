@@ -74,8 +74,6 @@
         display: none;
     }
 
-
-
     .main-nav {
         flex-direction: row;
         grid-column: 2;
@@ -102,6 +100,27 @@
     .main-nav li:last-of-type a {
         border-inline-end: none;
     }
+
+    .emoji-container {
+        max-height: 80px;
+    }
+
+    .emoji {
+        font-size: 2rem;
+    }
+
+    .btn-save {
+        width: 5rem;
+    }
+
+    .btn-share {
+        width: 5rem;
+    }
+
+    .btn-download {
+        width: 5rem;
+    }
+
 }
 
 /* LARGE */
@@ -133,5 +152,23 @@
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         gap: 2em;
         padding-block: 2em;
+    }
+
+    .btn {
+        width: 3.75rem;
+        height: 3.75rem;
+    }
+
+    .btn-save {
+        width: 7.5rem;
+    }
+
+    .btn-share {
+        width: 7.5rem;
+    }
+
+    .btn-download {
+        width: 7.5rem;
+        height: 3.75rem;
     }
 }

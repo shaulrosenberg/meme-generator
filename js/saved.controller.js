@@ -3,16 +3,14 @@
 
 
 function onInitSavedMemes() {
-    // hide meme-container
-    // hide gallery
-    // show SavedMemesContainer
-    // getSavedMemes
-    // renderSavedMeme
     hideElement('.img-gallery')
     hideElement('.meme-container')
     hideElement('.keywords')
     showElement('.saved-memes')
     renderSavedMemes()
+    removeActiveLink('.gallery-link')
+    removeActiveLink('.about-link')
+    addActiveLink('.memes-link')
 }
 
 function renderSavedMemes() {
