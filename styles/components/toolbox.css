@@ -16,6 +16,12 @@
     margin: 1em;
 }
 
+#lineText::placeholder {
+    font-family: Montserrat;
+    transform: translateX(2%);
+    font-weight: 600;
+}
+
 .btns-group1 {
     grid-row: 1;
     grid-column: 1/-1;
