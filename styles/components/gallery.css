@@ -35,3 +35,7 @@
 .add-image {
     max-width: 170px;
 }
+
+#gallery-search:focus {
+    outline: none;
+}

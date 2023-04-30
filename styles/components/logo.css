@@ -11,6 +11,10 @@
     justify-self: start;
 }
 
+.logo:hover {
+    cursor: pointer;
+}
+
 .footer .logo {
     width: 8.35rem;
     margin-block-end: 1em;

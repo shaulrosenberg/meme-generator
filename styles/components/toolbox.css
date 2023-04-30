@@ -2,7 +2,7 @@
     grid-column: 1;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 2fr 3fr 2fr 1fr;
+    grid-template-rows: 3fr 3fr 2fr 1fr;
     margin-block: 1em;
 }
 
@@ -42,6 +42,8 @@
     grid-column: 1/-1;
     justify-self: center;
     align-self: end;
+    display: flex;
+    justify-content: space-between;
 }
 
 .emoji-container {
@@ -134,6 +136,7 @@
 
 .btn-clr-stroke {
     background-color: white;
+    margin-inline: 5px;
     background-image: url('../../img/ICONS/text-stroke.png');
 }
 
@@ -147,8 +150,9 @@
     width: 7.5rem;
     border: none;
     border-radius: 0.75rem;
-    margin-inline-end: 1em;
+    margin-inline-end: 5px;
     font-size: 1rem;
+    display: inline-block;
 }
 
 .btn-prev {

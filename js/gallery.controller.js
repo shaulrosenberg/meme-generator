@@ -95,11 +95,15 @@ function renderImg(img) {
     hideElement('.keywords')
     showElement('.meme-container')
     onInitCanvas()
-    gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
+    gCtx.drawImage(img.target.result, 0, 0, gElCanvas.width, gElCanvas.height)
 }
 
 function toggleMenu() {
     document.body.classList.toggle('menu-open');
+}
+
+function onRefreshPage() {
+    window.location.reload()
 }
 
 function onInitAbout() {

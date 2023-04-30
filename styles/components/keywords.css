@@ -1,6 +1,7 @@
 
 .keywords {
-    padding-block-start: 1.25rem;
+    padding-block: 1.25rem;
+    background-color: white;
 }
 
 /* #gallery-search {

@@ -1,5 +1,6 @@
 .about {
     grid-column: 2;
+    background-color: white;
 }
 
 .about img {
@@ -36,3 +37,4 @@
     font-size: 2.5rem;
     margin-inline: 0.65rem;
 }
+
