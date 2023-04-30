@@ -2,7 +2,7 @@
     grid-column: 1;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 3fr 3fr 2fr 1fr;
+    grid-template-rows: 2.5fr 3fr 2fr 1fr;
     margin-block: 1em;
 }
 
@@ -35,6 +35,11 @@
     align-self: center;
     justify-self: center;
     margin-block-end: 2em;
+    width: 22.5rem;
+}
+
+.btns-group2 .btn {
+    margin-inline: 4px;
 }
 
 .btns-group3 {
@@ -43,7 +48,7 @@
     justify-self: center;
     align-self: end;
     display: flex;
-    justify-content: space-between;
+    width: 360px;
 }
 
 .emoji-container {
@@ -54,6 +59,7 @@
     border-radius: 0.75rem;
     background-color: white;
     padding-block: 1em;
+    padding-inline: 0.5rem;
 }
 
 .btns-group4 {
@@ -136,23 +142,22 @@
 
 .btn-clr-stroke {
     background-color: white;
-    margin-inline: 5px;
     background-image: url('../../img/ICONS/text-stroke.png');
 }
 
 .btn-clr-fill {
     background-color: white;
     background-image: url('../../img/ICONS/paint-board-and-brush.png');
+    margin-inline-start: 25px;
 }
 
 .select-font {
     height: 3.75rem;
-    width: 7.5rem;
+    width: 12rem;
     border: none;
     border-radius: 0.75rem;
-    margin-inline-end: 5px;
+    margin-inline-end: 1em;
     font-size: 1rem;
-    display: inline-block;
 }
 
 .btn-prev {

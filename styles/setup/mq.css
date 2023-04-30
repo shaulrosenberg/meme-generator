@@ -138,6 +138,27 @@
         margin-inline-start: 1em;
         text-align: start;
     }
+
+    .select-font {
+        width: 10rem;
+        margin-inline-start: 10px;
+    }
+
+    .btn-clr-fill {
+        margin-inline-start: 25px;
+    }
+
+    .btn-clr-stroke {
+        margin-inline-start: 10px;
+    }
+
+    .btns-group2 {
+        width: 22rem;
+    }
+
+    .btns-group2 .btn {
+        margin-inline: 3px;
+    }
 }
 
 /* LARGE */
@@ -188,5 +209,34 @@
     .btn-download {
         width: 7.5rem;
         height: 3.75rem;
+    }
+
+    .btn-clr-fill {
+        padding-inline-start: 25px;
+        
+    }
+
+    .btn-clr-stroke {
+        padding-inline-start: 10px;
+        
+    }
+
+    .select-font {
+        margin-inline-start: 0;
+        width: 13rem;
+    }
+
+    .btns-group2 {
+        width: 23rem;
+    }
+
+    .btns-group2 .btn {
+        margin-inline: 3.5px;
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .btns-group2 .btn {
+        margin-inline: 0.3rem;
     }
 }
