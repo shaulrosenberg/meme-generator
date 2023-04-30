@@ -123,10 +123,6 @@
         width: 5rem;
     }
 
-    .btn-download {
-        width: 5rem;
-    }
-
     .about-container {
         flex-direction: row;
         justify-content: center;
@@ -158,6 +154,14 @@
 
     .btns-group2 .btn {
         margin-inline: 3px;
+    }
+
+    .btns-group4 .btn {
+        width: 115px;
+    }
+
+    .btns-group4 .btn-download {
+        width: 115px;
     }
 }
 
@@ -238,5 +242,9 @@
 
     .btns-group2 .btn {
         margin-inline: 0.3rem;
+    }
+
+    .btns-group4 .btn {
+        width: 115px;
     }
 }
