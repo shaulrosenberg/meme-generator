@@ -4,6 +4,7 @@
     display: grid;
     grid-template-columns: 1fr minmax(auto, var(--s)) 1fr;
     /* grid-row-gap: 80px; */
+    /* grid-template-rows: auto 1fr auto; */
 }
 
 .main-layout>*:not(.full) {
@@ -14,6 +15,17 @@
     grid-column: 1 / -1;
 }
 
+.saved-memes {
+    min-height: 700px;
+}
+
+.about-container {
+    min-height: 700px;
+}
+
+.img-gallery {
+    min-height: 700px;
+}
 
 .meme-container {
     display: grid;
